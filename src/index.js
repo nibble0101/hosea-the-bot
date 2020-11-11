@@ -15,5 +15,5 @@ T.get("search/tweets", { q: "react.js since:2020-11-09", count: 50 }, function (
   data,
   response
 ) {
-    console.log(data);
+    console.log(data)
 });

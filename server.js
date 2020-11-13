@@ -5,7 +5,8 @@ const { response } = require("express");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.static(process.cwd() + "/public"))
+app.use(express.static(process.cwd() + "/public"));
+app.set("view engine", "ejs");
 
 const T = new Twit({
   consumer_key: process.env.API_KEY,
@@ -17,7 +18,7 @@ const T = new Twit({
 });
 
 app.get("/", (req, res) => {
-  res.sendFile("/index.html");
+  res.render("pages/index");
 });
 
 app.get("/home", (req, res) => {

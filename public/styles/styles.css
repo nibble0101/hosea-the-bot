@@ -10,3 +10,6 @@ main {
 #page-footer{
   padding-top: 0px; /* Remove padding on top */
 }
+a{
+  padding: 0 1em;
+}

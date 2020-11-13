@@ -17,14 +17,12 @@ const T = new Twit({
   strictSSL: true,
 });
 
-app.get("/", (req, res) => {
+app.get("/", (req, res, next) => {
   res.render("pages/index");
 });
-
-app.get("/home", (req, res) => {
-  
+app.get("/login", (req, res) => {
+  res.render("pages/login");
 });
-
 app.get("home/get-tweets/:id", (req, res) => {
   T.get(
     "search/tweets",

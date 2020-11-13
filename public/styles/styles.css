@@ -13,3 +13,9 @@ main {
 a{
   padding: 0 1em;
 }
+.btn-block {
+  width: 100%;
+}
+.center-align{
+  font-size: 2em;
+}

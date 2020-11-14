@@ -1,4 +1,4 @@
-const favorite_twitter_handles = [
+const favoriteTwitterHandles = [
   "@pvl1111",
   "@jamestanton",
   "@stevenstrogatz",
@@ -46,5 +46,5 @@ function sortFavoriteTwitterHandles(a, b) {
 
   return a < b ? -1 : b > a ? 1 : 0;
 }
-favorite_twitter_handles.sort(sortFavoriteTwitterHandles);
-module.exports = favorite_twitter_handles;
+favoriteTwitterHandles.sort(sortFavoriteTwitterHandles);
+module.exports = favoriteTwitterHandles;

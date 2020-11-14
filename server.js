@@ -1,7 +1,7 @@
 require("dotenv").config();
 const Twit = require("twit");
 const express = require("express");
-const { response } = require("express");
+const favoriteTwitterHandles = require("./src/favorite_twitter_handles");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,21 +17,31 @@ const T = new Twit({
   strictSSL: true,
 });
 
-app.get("/", (req, res, next) => {
-  res.render("pages/index");
+app.get("/", (req, res) => {
+  res.render("pages/favorite-twitter-handles", {
+    favoriteTwitterHandles: favoriteTwitterHandles,
+  });
 });
-app.get("/login", (req, res) => {
-  res.render("pages/login");
-});
-app.get("home/get-tweets/:id", (req, res) => {
+app.get("/status", (req, res) => {
+  T.get("statuses/user_timeline", {screen_name: "jamestanton", tweet_mode: "extended"}, function(error, data, response){
+    res.json(data[0].full_text)
+  })
+})
+app.get("/tweets", (req, res) => {
   T.get(
     "search/tweets",
-    { q: "react.js since:2020-11-09", count: 50 },
+    { q: "react.js since:2020-11-14", count: 100 },
     function (error, data, response) {
-      console.log(data);
+      res.render("pages/index", { statuses: data.statuses });
     }
   );
 });
+
+app.get("favorite-twitter-handles", (req, res) => {});
+app.get("/login", (req, res) => {
+  res.render("pages/login");
+});
+
 app.listen(PORT, () => {
   console.log(`app listening on  PORT ${PORT}`);
 });

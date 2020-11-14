@@ -24,7 +24,8 @@ app.get("/", (req, res) => {
     createColumns: createColumns,
   });
 });
-app.get("/status", (req, res) => {
+
+app.get("/status/:twitter-handle", (req, res) => {
   T.get("statuses/user_timeline", {screen_name: "jamestanton", tweet_mode: "extended"}, function(error, data, response){
     res.json(data[0])
   })

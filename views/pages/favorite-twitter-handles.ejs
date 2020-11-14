@@ -15,7 +15,9 @@
             <% const{ fro, to } = column %>
             <% for(let twitterHandle = fro; twitterHandle <= to; twitterHandle++){ %>
               <li>
-                <a href="#"> <%= favoriteTwitterHandles[twitterHandle] %> </a>
+                <% const handle = favoriteTwitterHandles[twitterHandle] %>
+                <% const endPoint = `/status/${handle.slice(1, handle.length)}` %>
+                <a href= <%= endPoint %>> <%= handle %> </a>
               </li>   
             <% } %>
 

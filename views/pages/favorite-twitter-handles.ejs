@@ -6,14 +6,22 @@
   <body>
     <%- include("../partials/header") %>
     <main class="container">
-      <p>My favorite twitter handles</p>
-      <ul>
-        <% favoriteTwitterHandles.forEach(handle => { %>
-        <li>
-          <a href="#"> <%= handle %> </a>
-        </li>
+      <p class="center">My favorite twitter handles</p>
+      <% const COLUMN_COUNT = 3 %>
+      <% const columns = createColumns(favoriteTwitterHandles, COLUMN_COUNT) %>
+      <div class="container row ">
+        <% columns.forEach(column => { %>
+          <ul class="col s4">
+            <% const{ fro, to } = column %>
+            <% for(let twitterHandle = fro; twitterHandle <= to; twitterHandle++){ %>
+              <li>
+                <a href="#"> <%= favoriteTwitterHandles[twitterHandle] %> </a>
+              </li>   
+            <% } %>
+
+          </ul>
         <% }) %>
-      </ul>
+        </div>
     </main>
     <%- include("../partials/footer") %>
   </body>

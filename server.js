@@ -2,6 +2,7 @@ require("dotenv").config();
 const Twit = require("twit");
 const express = require("express");
 const favoriteTwitterHandles = require("./src/favorite_twitter_handles");
+const createColumns = require("./src/utils");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,11 +21,12 @@ const T = new Twit({
 app.get("/", (req, res) => {
   res.render("pages/favorite-twitter-handles", {
     favoriteTwitterHandles: favoriteTwitterHandles,
+    createColumns: createColumns,
   });
 });
 app.get("/status", (req, res) => {
   T.get("statuses/user_timeline", {screen_name: "jamestanton", tweet_mode: "extended"}, function(error, data, response){
-    res.json(data[0].full_text)
+    res.json(data[0])
   })
 })
 app.get("/tweets", (req, res) => {

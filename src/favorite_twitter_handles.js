@@ -35,5 +35,5 @@ const favorite_twitter_handles = [
   "@chriscoyier"
 
 ];
-
+favorite_twitter_handles.sort();
 module.exports = favorite_twitter_handles;

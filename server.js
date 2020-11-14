@@ -7,6 +7,8 @@ const createColumns = require("./src/utils");
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.static(process.cwd() + "/public"));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 app.set("view engine", "ejs");
 
 const T = new Twit({
@@ -25,8 +27,9 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/status/:twitter-handle", (req, res) => {
-  T.get("statuses/user_timeline", {screen_name: "jamestanton", tweet_mode: "extended"}, function(error, data, response){
+app.get("/status/:handle", (req, res) => {
+  const {handle} = req.params
+  T.get("statuses/user_timeline", {screen_name: handle, tweet_mode: "extended"}, function(error, data, response){
     res.json(data[0])
   })
 })

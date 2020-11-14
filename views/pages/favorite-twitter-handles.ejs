@@ -9,9 +9,10 @@
       <p class="center">My favorite twitter handles</p>
       <% const COLUMN_COUNT = 3 %>
       <% const columns = createColumns(favoriteTwitterHandles, COLUMN_COUNT) %>
-      <div class="container row ">
+      <% const innerWrapperClass = `col s${12/COLUMN_COUNT}` %>
+      <div class="container row">
         <% columns.forEach(column => { %>
-          <ul class="col s4">
+          <ul class= <%= innerWrapperClass %> >
             <% const{ fro, to } = column %>
             <% for(let twitterHandle = fro; twitterHandle <= to; twitterHandle++){ %>
               <li>

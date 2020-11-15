@@ -33,7 +33,7 @@ app.get("/status/:handle", (req, res) => {
     "statuses/user_timeline",
     { screen_name: handle, tweet_mode: "extended" },
     function (error, data, response) {
-      res.json(data[0]);
+      res.render("pages/profile", {profile: data[0]});
     }
   );
 });

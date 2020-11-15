@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <%- include("../partials/head") %>
+  </head>
+  <body>
+    <%- include("../partials/header") %>
+    <main class="container">
+      <div class="row">
+        <div class="col s4">
+            <div class="card grey text-darken-2" style="padding: 1em">
+                <p>
+                    <span class="col1" >
+                        <img src= <%= profile.user.profile_image_url_https %> alt= <%= profile.user.name %> >
+                     </span> 
+                     <span class="col2">
+                        <%= profile.user.name %>
+                    </span> 
+                </p> 
+                <p>
+                    <span class="col3">
+                        @<%= profile.user.screen_name %>
+                    </span> 
+                </p>
+                <p>
+                    <span class="col3">
+                        <%= profile.user.location %>
+                    </span>  
+                </p>
+                <p>
+                    <span class="col3">
+                        <%= profile.user.description %>
+                    </span>
+                </p>
+            </div>
+        </div>
+      </div>
+    </main>
+    <%- include("../partials/footer") %>
+  </body>
+</html>

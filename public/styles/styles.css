@@ -19,3 +19,6 @@ a{
 .center-align{
   font-size: 2em;
 }
+img{
+  border-radius: 50%;
+}

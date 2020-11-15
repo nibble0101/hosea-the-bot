@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.static(process.cwd() + "/public"));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 
 const T = new Twit({
@@ -28,11 +28,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/status/:handle", (req, res) => {
-  const {handle} = req.params
-  T.get("statuses/user_timeline", {screen_name: handle, tweet_mode: "extended"}, function(error, data, response){
-    res.json(data[0])
-  })
-})
+  const { handle } = req.params;
+  T.get(
+    "statuses/user_timeline",
+    { screen_name: handle, tweet_mode: "extended" },
+    function (error, data, response) {
+      res.json(data[0]);
+    }
+  );
+});
 app.get("/tweets", (req, res) => {
   T.get(
     "search/tweets",
@@ -43,7 +47,6 @@ app.get("/tweets", (req, res) => {
   );
 });
 
-app.get("favorite-twitter-handles", (req, res) => {});
 app.get("/login", (req, res) => {
   res.render("pages/login");
 });

@@ -34,6 +34,17 @@
                 </p>
             </div>
         </div>
+        <div class="col s8">
+            <div class="card grey text-darken-2" style="padding: 1em">
+                <% profiles.forEach(profile => { %>
+                    <div class="card" style="padding: 1em">
+                        <h1> Tweet </h1>
+                        <p> <%= profile.full_text %> </p>
+                        <p> <%= profile.created_at %> </p>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
       </div>
     </main>
     <%- include("../partials/footer") %>

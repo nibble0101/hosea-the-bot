@@ -4,7 +4,7 @@ const favoriteTwitterHandles = [
   "@stevenstrogatz",
   "@DavidNdii",
   "@freeCodeCamp",
-  "@iamdeveloper",
+  "@iamdevloper",
   "@ThePracticalDev",
   "@outreachy",
   "@DevSimplified",

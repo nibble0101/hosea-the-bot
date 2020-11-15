@@ -2,6 +2,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: #386774;
 }
 
 main {
@@ -21,4 +22,8 @@ a{
 }
 img{
   border-radius: 50%;
+}
+.over-flow{
+  height: 70vh;
+  overflow-y: scroll;
 }
